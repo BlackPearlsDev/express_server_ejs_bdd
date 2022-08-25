@@ -42,7 +42,7 @@ app.get("/orders", async (req, res, next) =>{
 
 app.get("/orderDetails/:id/:customerId", async (req, res, next) =>{
     const [order] = await POOL.execute("SELECT customerName, contactLastName, contactFirstName, addressLine1, city FROM orders JOIN customers ON orders.customerNumber = customers.customerNumber WHERE orderNumber = ?", [req.params.id]);
-    const [orderDetails] = await POOL.execute(`SELECT orders.orderNumber, productName, quantityOrdered, priceEach, (quantityOrdered * priceEach) AS totalPrice, orderdetails.productCode FROM orderdetails INNER JOIN orders ON orderdetails.orderNumber = orders.orderNumber INNER JOIN products ON orderdetails.productCode = products.productCode WHERE orders.orderNumber = ? ORDER BY products.productName`, [req.params.id]);
+    const [orderDetails] = await POOL.execute(`SELECT orders.orderNumber, productName, quantityOrdered, priceEach FROM orderdetails JOIN orders ON orderdetails.orderNumber = orders.orderNumber JOIN products ON orderdetails.productCode = products.productCode WHERE orders.orderNumber = ? ORDER BY products.productName`, [req.params.id]);
     // request to get TVA
     const [totalHt] = await POOL.execute(`SELECT SUM(quantityOrdered * priceEach) AS totalPrice FROM orderdetails WHERE orderNumber = ?`, [req.params.id]);
     res.render("layout", {template: `orderDetails`, orders: order, orderId: req.params.id, orderDetails: orderDetails, totalHts: totalHt});
