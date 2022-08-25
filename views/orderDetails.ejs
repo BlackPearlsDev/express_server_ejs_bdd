@@ -6,9 +6,6 @@
         </article>
 
         <article id="flexRight">
-            <!-- for customerNumber from table customer, show orders and use customerNumber from table orders to compare -->
-
-            <!-- orderId pour récuperer l'ID de la commande -->
             <% for( const order of orders ) { %>
                 <h2><%= order.customerName %></h2>
                 <p><%= order.contactLastName %>, <%= order.contactFirstName %></p>
