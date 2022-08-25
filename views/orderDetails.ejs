@@ -1,0 +1,80 @@
+<main>
+    <section id="orderForm">
+        <article id="flexLeft">
+            <h2 id="seagreen">Bon de commande</h2>
+            <a href="/orders">Retourner à l'acceuil</a>
+        </article>
+
+        <article id="flexRight">
+            <!-- for customerNumber from table customer, show orders and use customerNumber from table orders to compare -->
+
+            <!-- orderId pour récuperer l'ID de la commande -->
+            <% for( const order of orders ) { %>
+                <h2><%= order.customerName %></h2>
+                <p><%= order.contactLastName %>, <%= order.contactFirstName %></p>
+                <p><%= order.addressLine1 %></p>
+                <p><%= order.city %></p>
+            <% } %>
+        </article>
+
+        <hr>
+
+        <article>
+            <h2>Bon de commande n° <%= orderId %></h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix unitaire</th>
+                        <th>Quantité</th>
+                        <th colspan="3">Prix total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for( const orderDetail of orderDetails ) { %>
+                        <tr>
+                            <td><%=orderDetail.productName%></td>
+                            <td><%=orderDetail.priceEach%></td>
+                            <td><%=orderDetail.quantityOrdered%></td>
+                            <td><%=(orderDetail.priceEach * orderDetail.quantityOrdered).toFixed(2)%> €</td>
+                        </tr>
+                    <% } %>
+
+
+
+                    <tr>
+                        <td></td>
+                        <td colspan="2" class="txtRight">Montant Total HT</td>
+                        <% for( const totalHt of totalHts ) { %>
+                            <td><%=totalHt.totalPrice.toFixed(2)%> €</td>
+                        <% } %>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td colspan="2" class="txtRight">TVA (20%)</td>
+                        <% for( const totalHt of totalHts ) { %>
+                            <td><%=(totalHt.totalPrice / 100 * 20).toFixed(2)%> €</td>
+                        <% } %>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td colspan="2" class="txtRight">Montant Total TTC</td>
+                        <% for( const totalHt of totalHts ) { %>
+                            <td><%=((totalHt.totalPrice / 100 * 20) + totalHt.totalPrice).toFixed(2)%> €</td>
+                        <% } %>
+                    </tr>
+                    
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+    </section>
+</main>

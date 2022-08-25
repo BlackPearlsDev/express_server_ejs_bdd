@@ -1,0 +1,36 @@
+<main>
+    <section>
+        <article>
+            <h2>Choisis la <span id="txtCrimson">commande</span> à visionner.</h2>
+
+            <table>
+                <caption>Liste des commandes</caption>
+                <thead>
+                    <tr>
+                        <th>Commande</th>
+                        <th>Date de la commande</th>
+                        <th>Date de livraison</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                
+                    <tbody>
+                        <% for( const data of datas ) { %>
+                            <tr>
+                                <td><a href="/orderDetails/<%=data.orderNumber%>/<%=data.customerNumber%> "><span id="txtCrimson">N°</span> <%=data.orderNumber%></a></td>
+                                <td><%=data.orderDate.toLocaleDateString()%></td>
+                                <td><%=data.shippedDate?.toLocaleDateString()%></td>
+                                <td><%=data.status%></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+        </article>
+    </section>
+</main>

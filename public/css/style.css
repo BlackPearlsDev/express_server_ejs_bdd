@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #444;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 1%;
+}
+
+h2 {
+    font-size: 3rem;
+    margin: 1%;
+}
+
+nav {
+    margin: 2%;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+a:hover {
+    border: 1px solid crimson;
+    color: crimson;
+}
+
+#txtCrimson {
+    color: crimson;
+}
+
+main {
+    border: 1px dashed lightblue;
+    max-width: 80%;
+    margin: 3% auto;
+    padding: 1%;
+    text-align: center;
+}
+
+#formInfo {
+    margin: 2%;
+    font-size: 1.8rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    margin: 1%;
+    padding: 1%;
+    font-size: 1.6rem;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+}
+
+button {
+    margin: 1%;
+    padding: 1%;
+    font-size: 1.6rem;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    background-color: crimson;
+    color: #fff;
+}
+
+textarea {
+    margin: 1%;
+    padding: 1%;
+    resize: none;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #fff;
+    color: crimson;
+}
+
+.orders {
+    margin: 2%;
+}
+
+#seagreen {
+    color: seagreen;
+}
+
+#orderForm h2, #orderForm p, #orderForm a {
+    margin: 1%;
+}
+
+#flexLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#flexRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+table {
+    background-color: #0138;
+    border-radius: 20px;
+    padding: 1%;
+    margin: 3% auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+table a {
+    border: 2px solid black;
+    color: black;
+}
+
+th {
+    padding: 1%;
+    /* border: 2px solid green; */
+}
+
+td {
+    margin: 1%;
+    padding: 3%;
+    /* border: 2px solid red; */
+}
+
+tr {
+    padding: 1%;
+    /* border: 2px solid blue; */
+}
+
+tr:nth-child(even) {
+    background-color: rgb(81, 131, 148);
+}
+
+tbody {
+    background-color: lightblue;
+    color: black;
+}
+
+.txtRight {
+    text-align: right;
+    color: green;
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    text-decoration: underline;
+}
